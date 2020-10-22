@@ -1,9 +1,15 @@
+# for model fields
 from django.db import models
+
+# to override Base User model,
+# WARNING! to be done at very start of the project
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 
+# custom manager created for the user
 from account.manager import UserManager
 
+# check below for necessary methods to define
 # https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#specifying-a-custom-user-model
 class User(AbstractBaseUser, PermissionsMixin):
 	email= models.EmailField(verbose_name='email address', unique=True)
